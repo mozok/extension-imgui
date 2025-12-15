@@ -330,6 +330,17 @@
       type: number
 
 
+  - name: set_next_window_collapsed
+    type: function
+    desc: SetNextWindowCollapsed 
+    parameters:
+    - name: collapsed
+      type: bool
+
+    - name: cond
+      type: integer
+
+
   - name: get_window_size
     type: function
     desc: GetWindowSize 

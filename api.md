@@ -254,6 +254,14 @@ PARAMS
 * `pivot_x` [`number`] - 
 * `pivot_y` [`number`] - 
 
+### set_next_window_collapsed(collapsed,cond)
+SetNextWindowCollapsed 
+
+
+PARAMS
+* `collapsed` [`bool`] - 
+* `cond` [`number`] - 
+
 
 ### get_window_size()
 GetWindowSize 
