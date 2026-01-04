@@ -1,3 +1,9 @@
+/** Dear ImGUI
+ * Functions and constants for interacting with Dear ImGUI
+ * @document
+ * @namespace imgui
+ */
+
 #define LIB_NAME "ImGui"
 #define MODULE_NAME "imgui"
 
@@ -1107,7 +1113,7 @@ static int imgui_EndCombo(lua_State* L)
  * @number current
  * @table items
  * @treturn boolean result
- * @treturn number 
+ * @treturn number current
  */
 static int imgui_Combo(lua_State* L)
 {
