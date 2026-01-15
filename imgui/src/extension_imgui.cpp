@@ -1,3 +1,9 @@
+/** Dear ImGUI
+ * Functions and constants for interacting with Dear ImGUI
+ * @document
+ * @namespace imgui
+ */
+
 #define LIB_NAME "ImGui"
 #define MODULE_NAME "imgui"
 
@@ -896,16 +902,25 @@ static int imgui_EndChild(lua_State* L)
 
 /** BeginPopupContextItem
  * @name begin_popup_context_item
- * @string id
+ * If id is omitted, uses the last item ID (same as ImGui helper behavior).
+ * Lua - call with no arguments to use the last item; passing nil is not accepted.
+ * @string id Optional; if omitted, uses the last item ID.
  * @treturn boolean result
  */
 static int imgui_BeginPopupContextItem(lua_State* L)
 {
     DM_LUA_STACK_CHECK(L, 1);
     imgui_NewFrame();
-    const char* id = luaL_checkstring(L, 1);
-    bool result = ImGui::BeginPopupContextItem(id);
-    lua_pushboolean(L, result);
+    //if stack 1 then
+    int stack = lua_gettop(L);
+    if(stack == 1){
+        const char* id = luaL_checkstring(L, 1);
+        bool result = ImGui::BeginPopupContextItem(id);
+        lua_pushboolean(L, result);
+    }else{
+        bool result = ImGui::BeginPopupContextItem();
+        lua_pushboolean(L, result);
+    }
     return 1;
 }
 
@@ -1116,7 +1131,7 @@ static int imgui_EndCombo(lua_State* L)
  * @number current
  * @table items
  * @treturn boolean result
- * @treturn number 
+ * @treturn number current
  */
 static int imgui_Combo(lua_State* L)
 {
@@ -1582,6 +1597,33 @@ static int imgui_InputInt4(lua_State* L)
     return 5;
 }
 
+/** InputInt2
+ * @name input_int2
+ */
+static int imgui_InputInt2(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 3);
+    imgui_NewFrame();
+    const char* label = luaL_checkstring(L, 1);
+    int v[2];
+    v[0]  = luaL_checkinteger(L, 2);
+    v[1]  = luaL_checkinteger(L, 3);
+
+    bool changed = ImGui::InputInt2(label, v);
+    lua_pushboolean(L, changed);
+    if (changed)
+    {
+        lua_pushnumber(L, v[0]);
+        lua_pushnumber(L, v[1]);
+    }
+    else
+    {
+        lua_pushnil(L);
+        lua_pushnil(L);
+    }
+    return 3;
+}
+
 
 /** InputFloat3
  * @name input_float3
@@ -1720,6 +1762,109 @@ static int imgui_SliderFloat(lua_State* L)
         lua_pushnil(L);
     }
     return 2;
+}
+
+/** SliderFloat3
+ * @name slider_float3
+ * @string label
+ * @number value1
+ * @number value2
+ * @number value3
+ * @number min
+ * @number max
+ * @number precision
+ * @treturn number value1
+ * @treturn number value2
+ * @treturn number value3
+ */
+static int imgui_SliderFloat3(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 4);
+    imgui_NewFrame();
+    const char* label = luaL_checkstring(L, 1);
+    float v[3];
+    v[0] = luaL_checknumber(L, 2);
+    v[1] = luaL_checknumber(L, 3);
+    v[2] = luaL_checknumber(L, 4);
+    float min = luaL_checknumber(L, 5);
+    float max = luaL_checknumber(L, 6);
+    char float_precision[20] = { "%.6f" };
+
+    if (lua_isnumber(L, 7))
+    {
+        int precision_count = lua_tointeger(L, 7);
+        dmSnPrintf(float_precision, sizeof(float_precision), "%%.%df", precision_count);
+    }
+
+    bool changed = ImGui::SliderFloat3(label, v, min, max, float_precision);
+    lua_pushboolean(L, changed);
+    if (changed)
+    {
+        lua_pushnumber(L, v[0]);
+        lua_pushnumber(L, v[1]);
+        lua_pushnumber(L, v[2]);
+    }
+    else
+    {
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+    }
+    return 4;
+}
+
+/** SliderFloat4
+ * @name slider_float4
+ * @string label
+ * @number value1
+ * @number value2
+ * @number value3
+ * @number value4
+ * @number min
+ * @number max
+ * @number precision
+ * @treturn number value1
+ * @treturn number value2
+ * @treturn number value3
+ * @treturn number value4
+ */
+static int imgui_SliderFloat4(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 5);
+    imgui_NewFrame();
+    const char* label = luaL_checkstring(L, 1);
+    float v[4];
+    v[0] = luaL_checknumber(L, 2);
+    v[1] = luaL_checknumber(L, 3);
+    v[2] = luaL_checknumber(L, 4);
+    v[3] = luaL_checknumber(L, 5);
+    float min = luaL_checknumber(L, 6);
+    float max = luaL_checknumber(L, 7);
+    char float_precision[20] = { "%.6f" };
+
+    if (lua_isnumber(L, 8))
+    {
+        int precision_count = lua_tointeger(L, 8);
+        dmSnPrintf(float_precision, sizeof(float_precision), "%%.%df", precision_count);
+    }
+
+    bool changed = ImGui::SliderFloat4(label, v, min, max, float_precision);
+    lua_pushboolean(L, changed);
+    if (changed)
+    {
+        lua_pushnumber(L, v[0]);
+        lua_pushnumber(L, v[1]);
+        lua_pushnumber(L, v[2]);
+        lua_pushnumber(L, v[3]);
+    }
+    else
+    {
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+    }
+    return 5;
 }
 
 
@@ -2909,6 +3054,17 @@ static int imgui_CalcItemWidth(lua_State *L)
 // ----- NAVIGATION -----------------
 // ----------------------------
 
+/** SetItemDefaultFocus
+ * @name set_item_default_focus
+ */
+static int imgui_SetItemDefaultFocus(lua_State* L)
+{
+    DM_LUA_STACK_CHECK(L, 0);
+    imgui_NewFrame();
+    ImGui::SetItemDefaultFocus();
+    return 0;
+}
+
 /** SetScrollHereY
  * @name set_scroll_here_y
  */
@@ -3426,7 +3582,8 @@ static const luaL_reg Module_methods[] =
     {"text", imgui_Text},
     {"text_colored", imgui_TextColored},
     {"input_text", imgui_InputText},
-    {"input_int", imgui_InputInt},
+    {"input_int", imgui_InputInt}, 
+    {"input_int2", imgui_InputInt2},  
     {"input_int4", imgui_InputInt4},
     {"input_float", imgui_InputFloat},
     {"input_double", imgui_InputDouble},
@@ -3434,6 +3591,8 @@ static const luaL_reg Module_methods[] =
     {"input_float4", imgui_InputFloat4},
     {"drag_float", imgui_DragFloat},
     {"slider_float", imgui_SliderFloat},
+    {"slider_float3", imgui_SliderFloat3},
+    {"slider_float4", imgui_SliderFloat4},
     {"button", imgui_Button},
     {"button_image", imgui_ButtonImage},
     {"button_arrow", imgui_ButtonArrow},
@@ -3496,6 +3655,7 @@ static const luaL_reg Module_methods[] =
     {"is_mouse_clicked", imgui_IsMouseClicked},
     {"is_mouse_double_clicked", imgui_IsMouseDoubleClicked},
     {"set_keyboard_focus_here", imgui_SetKeyboardFocusHere},
+    {"set_item_default_focus", imgui_SetItemDefaultFocus},
 
     {"set_style", imgui_SetStyle},
     {"get_style", imgui_GetStyle},

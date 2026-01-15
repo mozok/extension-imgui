@@ -5,1034 +5,995 @@
   members:
   - name: image_b64_decode
     type: function
-    desc: ImageB64Decode 
+    desc: ImageB64Decode. 
     parameters:
     - name: data
       type: string
-
     - name: length
       type: number
-
     returns:
     - name: decoded
       type: string
-      desc: Data
+      desc: |
+        Data
+        
 
   - name: image_load_data
     type: function
-    desc: ImageLoadData 
+    desc: ImageLoadData. 
     parameters:
     - name: filename
       type: string
-
     - name: data
       type: string
-
     - name: data_length
       type: number
-
     returns:
     - name: texture_id
       type: number
-
     - name: width
       type: number
-
     - name: height
       type: number
-
 
   - name: image_load
     type: function
-    desc: ImageLoad 
+    desc: ImageLoad. 
     parameters:
     - name: filename
       type: string
-
     returns:
     - name: texture_id
       type: number
-
     - name: width
       type: number
-
     - name: height
       type: number
 
-
   - name: add_line
     type: function
-    desc: DrawListAddLine 
+    desc: DrawListAddLine. 
     parameters:
     - name: x1
       type: number
-
     - name: y1
       type: number
-
     - name: x2
       type: number
-
     - name: y2
       type: number
-
     - name: r
       type: number
-
     - name: g
       type: number
-
     - name: b
       type: number
-
     - name: a
       type: number
-
 
   - name: add_rect
     type: function
-    desc: DrawListAddRect 
+    desc: DrawListAddRect. 
     parameters:
     - name: x1
       type: number
-
     - name: y1
       type: number
-
     - name: x2
       type: number
-
     - name: y2
       type: number
-
     - name: r
       type: number
-
     - name: g
       type: number
-
     - name: b
       type: number
-
     - name: a
       type: number
-
     - name: thickness
       type: number
 
-
   - name: set_display_size
     type: function
-    desc: SetDisplaySize 
+    desc: SetDisplaySize. 
     parameters:
     - name: w
       type: number
-
     - name: h
       type: number
 
-
   - name: set_mouse_input
     type: function
-    desc: SetMouseInput 
+    desc: SetMouseInput. 
     parameters:
     - name: x
       type: number
-
     - name: y
       type: number
-
     - name: down1
       type: number
-
     - name: down2
       type: number
-
     - name: down3
       type: number
-
     - name: wheel
       type: number
-
 
   - name: set_mouse_pos
     type: function
-    desc: SetMousePos 
+    desc: SetMousePos. 
     parameters:
     - name: x
       type: number
-
     - name: y
       type: number
 
-
   - name: set_mouse_button
     type: function
-    desc: SetMouseButton 
+    desc: SetMouseButton. 
     parameters:
     - name: index
       type: number
-
     - name: down
       type: number
 
-
   - name: set_mouse_wheel
     type: function
-    desc: SetMouseWheel 
+    desc: SetMouseWheel. 
     parameters:
     - name: wheel
       type: number
 
-
   - name: set_key_down
     type: function
-    desc: SetKeyDown 
+    desc: SetKeyDown. 
     parameters:
     - name: key
       type: number
-
     - name: down
       type: boolean
-
 
   - name: set_key_modifier_ctrl
     type: function
-    desc: SetKeyModifierCtrl 
+    desc: SetKeyModifierCtrl. 
     parameters:
     - name: down
       type: boolean
-
 
   - name: set_key_modifier_shift
     type: function
-    desc: SetKeyModifierShift 
+    desc: SetKeyModifierShift. 
     parameters:
     - name: down
       type: boolean
-
 
   - name: set_key_modifier_alt
     type: function
-    desc: SetKeyModifierAlt 
+    desc: SetKeyModifierAlt. 
     parameters:
     - name: down
       type: boolean
-
 
   - name: set_key_modifier_super
     type: function
-    desc: SetKeyModifierSuper 
+    desc: SetKeyModifierSuper. 
     parameters:
     - name: down
       type: boolean
 
-
   - name: add_input_character
     type: function
-    desc: AddInputCharacter 
+    desc: AddInputCharacter. 
     parameters:
     - name: character
       type: string
 
-
   - name: add_input_characters
     type: function
-    desc: AddInputCharacters 
+    desc: AddInputCharacters. 
     parameters:
     - name: characters
       type: string
 
-
   - name: tree_node
     type: function
-    desc: TreeNode 
+    desc: TreeNode. 
     parameters:
     - name: text
       type: string
-
     - name: flags
       type: number
-
 
   - name: tree_pop
     type: function
-    desc: TreePop 
+    desc: TreePop. 
 
   - name: push_id
     type: function
-    desc: PushId 
+    desc: PushId. 
     parameters:
     - name: text
       type: string
 
-
   - name: pop_id
     type: function
-    desc: PopId 
+    desc: PopId. 
 
   - name: begin
     type: function
-    desc: Begin 
+    desc: Begin. 
     parameters:
     - name: title
       type: string
-
     - name: is_open
       type: boolean
-
     - name: flags
       type: number
-
     returns:
     - name: result
       type: bool
-
     - name: is_open
       type: bool
 
-
   - name: end
     type: function
-    desc: End 
+    desc: End. 
 
   - name: set_next_window_size
     type: function
-    desc: SetNextWindowSize 
+    desc: SetNextWindowSize. 
     parameters:
     - name: width
       type: number
-
     - name: height
       type: number
-
     - name: cond
       type: number
-
 
   - name: set_next_window_pos
     type: function
-    desc: SetNextWindowPos 
+    desc: SetNextWindowPos. 
     parameters:
     - name: x
       type: number
-
     - name: y
       type: number
-
     - name: cond
       type: number
-
     - name: pivot_x
       type: number
-
     - name: pivot_y
       type: number
 
-
-  - name: set_next_window_collapsed
-    type: function
-    desc: SetNextWindowCollapsed 
-    parameters:
-    - name: collapsed
-      type: bool
-
-    - name: cond
-      type: integer
-
-
   - name: get_window_size
     type: function
-    desc: GetWindowSize 
+    desc: GetWindowSize. 
     returns:
     - name: width
       type: number
-
     - name: height
       type: number
 
-
   - name: get_window_pos
     type: function
-    desc: GetWindowPos 
+    desc: GetWindowPos. 
     returns:
     - name: x
       type: number
-
     - name: y
       type: number
 
-
   - name: is_window_focused
     type: function
-    desc: IsWindowFocused 
+    desc: IsWindowFocused. 
     parameters:
     - name: flags
       type: number
-
     returns:
     - name: focused
       type: boolean
 
-
   - name: is_window_hovered
     type: function
-    desc: IsWindowHovered 
+    desc: IsWindowHovered. 
     returns:
     - name: result
       type: bool
-
 
   - name: get_content_region_avail
     type: function
-    desc: GetContentRegionAvail 
+    desc: GetContentRegionAvail. 
     returns:
     - name: x
       type: number
-
     - name: y
       type: number
-
 
   - name: get_window_content_region_max
     type: function
-    desc: GetWindowContentRegionMax 
+    desc: GetWindowContentRegionMax. 
     returns:
     - name: x
       type: number
-
     - name: y
       type: number
 
-
   - name: begin_child
     type: function
-    desc: BeginChild 
+    desc: BeginChild. 
     parameters:
     - name: title
       type: string
-
     - name: width
       type: number
-
     - name: border
       type: number
-
     - name: flags
       type: number
-
     returns:
     - name: result
       type: bool
 
-
   - name: end_child
     type: function
-    desc: EndChild 
+    desc: EndChild. 
 
   - name: begin_popup_context_item
     type: function
-    desc: BeginPopupContextItem 
+    desc: BeginPopupContextItem. If id is omitted, uses the last item ID (same as ImGui helper behavior). Lua - call with no arguments to use the last item; passing nil is not accepted.
     parameters:
     - name: id
       type: string
-
+      desc: |
+        Optional; if omitted, uses the last item ID.
+        
     returns:
     - name: result
       type: boolean
-
 
   - name: begin_popup
     type: function
-    desc: BeginPopup 
+    desc: BeginPopup. 
     parameters:
     - name: id
       type: string
-
     - name: flags
       type: number
-
     returns:
     - name: result
       type: boolean
-
 
   - name: begin_popup_modal
     type: function
-    desc: BeginPopupModal 
+    desc: BeginPopupModal. 
     parameters:
     - name: id
       type: string
-
     - name: flags
       type: number
-
     returns:
     - name: result
       type: boolean
-
 
   - name: open_popup
     type: function
-    desc: OpenPopup 
+    desc: OpenPopup. 
     parameters:
     - name: id
       type: string
-
     - name: flags
       type: number
-
     returns:
     - name: result
       type: boolean
-
 
   - name: close_current_popup
     type: function
-    desc: CloseCurrentPopup 
+    desc: CloseCurrentPopup. 
 
   - name: end_popup
     type: function
-    desc: EndPopup 
+    desc: EndPopup. 
 
   - name: begin_drag_drop_source
     type: function
-    desc: BeginDragDropSource 
+    desc: BeginDragDropSource. 
     parameters:
     - name: flags
       type: number
-
     returns:
     - name: result
       type: boolean
-
 
   - name: end_drag_drop_source
     type: function
-    desc: EndDragDropSource 
+    desc: EndDragDropSource. 
 
   - name: begin_drag_drop_target
     type: function
-    desc: BeginDragDropTarget 
+    desc: BeginDragDropTarget. 
     returns:
     - name: result
       type: boolean
-
 
   - name: end_drag_drop_target
     type: function
-    desc: EndDragDropTarget 
+    desc: EndDragDropTarget. 
 
   - name: set_drag_drop_payload
     type: function
-    desc: SetDragDropPayload 
+    desc: SetDragDropPayload. 
     parameters:
     - name: type
       type: string
-
     - name: payload
       type: string
-
     returns:
     - name: result
       type: boolean
-
 
   - name: accept_drag_drop_payload
     type: function
-    desc: AcceptDragDropPayload 
+    desc: AcceptDragDropPayload. 
     parameters:
     - name: type
       type: string
-
     - name: flags
       type: number
-
     returns:
     - name: payload
       type: string
 
-
   - name: begin_combo
     type: function
-    desc: BeginCombo 
+    desc: BeginCombo. 
     parameters:
     - name: label
       type: string
-
     - name: preview
       type: string
-
     returns:
     - name: result
       type: boolean
-
 
   - name: end_combo
     type: function
-    desc: EndCombo 
+    desc: EndCombo. 
 
   - name: combo
     type: function
-    desc: Combo 
+    desc: Combo. 
     parameters:
     - name: label
       type: string
-
     - name: current
       type: number
-
     - name: items
       type: table
-
     returns:
     - name: result
       type: boolean
-
-    - name: r
-      type: numbe
-
+    - name: current
+      type: number
 
   - name: begin_table
     type: function
-    desc: BeginTable 
+    desc: BeginTable. 
 
   - name: end_table
     type: function
-    desc: EndTable 
+    desc: EndTable. 
 
   - name: table_headers_row
     type: function
-    desc: TableHeadersRow 
+    desc: TableHeadersRow. 
 
   - name: table_setup_column
     type: function
-    desc: TableSetupColumn 
+    desc: TableSetupColumn. 
 
   - name: table_set_column_index
     type: function
-    desc: TableSetColumnIndex 
+    desc: TableSetColumnIndex. 
 
   - name: table_next_column
     type: function
-    desc: TableNextColumn 
+    desc: TableNextColumn. 
 
   - name: table_next_row
     type: function
-    desc: TableNextRow 
+    desc: TableNextRow. 
 
   - name: table_setup_scroll_freeze
     type: function
-    desc: TableSetupScrollFreeze 
+    desc: TableSetupScrollFreeze. 
 
   - name: begin_tooltip
     type: function
-    desc: BeginTooltip 
+    desc: BeginTooltip. 
 
   - name: end_tooltip
     type: function
-    desc: EndTooltip 
+    desc: EndTooltip. 
 
   - name: begin_tab_bar
     type: function
-    desc: BeginTabBar 
+    desc: BeginTabBar. 
 
   - name: end_tab_bar
     type: function
-    desc: EndTabBar 
+    desc: EndTabBar. 
 
   - name: begin_tab_item
     type: function
-    desc: BeginTabItem 
+    desc: BeginTabItem. 
 
   - name: end_tab_item
     type: function
-    desc: EndTabItem 
+    desc: EndTabItem. 
 
   - name: text
     type: function
-    desc: Text 
+    desc: Text. 
 
   - name: text_get_size
     type: function
-    desc: TextGetSize 
+    desc: TextGetSize. 
 
   - name: text_colored
     type: function
-    desc: TextColored 
+    desc: TextColored. 
 
   - name: input_text
     type: function
-    desc: InputText 
+    desc: InputText. 
 
   - name: input_int
     type: function
-    desc: InputInt 
+    desc: InputInt. 
 
   - name: input_float
     type: function
-    desc: InputFloat 
+    desc: InputFloat. 
 
   - name: input_double
     type: function
-    desc: InputDouble 
+    desc: InputDouble. 
 
   - name: input_int4
     type: function
-    desc: InputInt4 
+    desc: InputInt4. 
+
+  - name: input_int2
+    type: function
+    desc: InputInt2. 
 
   - name: input_float3
     type: function
-    desc: InputFloat3 
+    desc: InputFloat3. 
 
   - name: input_float4
     type: function
-    desc: InputFloat4 
+    desc: InputFloat4. 
 
   - name: drag_float
     type: function
-    desc: DragFloat 
+    desc: DragFloat. 
     parameters:
     - name: label
       type: string
-
     - name: value
       type: number
-
     - name: speed
       type: number
-
     - name: min
       type: number
-
     - name: max
       type: number
-
     - name: precision
       type: number
-
     returns:
     - name: value
       type: number
-
 
   - name: slider_float
     type: function
-    desc: SliderFloat 
+    desc: SliderFloat. 
     parameters:
     - name: label
       type: string
-
     - name: value
       type: number
-
     - name: min
       type: number
-
     - name: max
       type: number
-
     - name: precision
       type: number
-
     returns:
     - name: value
       type: number
 
+  - name: slider_float3
+    type: function
+    desc: SliderFloat3. 
+    parameters:
+    - name: label
+      type: string
+    - name: value1
+      type: number
+    - name: value2
+      type: number
+    - name: value3
+      type: number
+    - name: min
+      type: number
+    - name: max
+      type: number
+    - name: precision
+      type: number
+    returns:
+    - name: value1
+      type: number
+    - name: value2
+      type: number
+    - name: value3
+      type: number
+
+  - name: slider_float4
+    type: function
+    desc: SliderFloat4. 
+    parameters:
+    - name: label
+      type: string
+    - name: value1
+      type: number
+    - name: value2
+      type: number
+    - name: value3
+      type: number
+    - name: value4
+      type: number
+    - name: min
+      type: number
+    - name: max
+      type: number
+    - name: precision
+      type: number
+    returns:
+    - name: value1
+      type: number
+    - name: value2
+      type: number
+    - name: value3
+      type: number
+    - name: value4
+      type: number
 
   - name: color_edit4
     type: function
-    desc: ColorEdit4 
+    desc: ColorEdit4. 
     parameters:
     - name: label
       type: string
-
     - name: color
       type: vec4
-
     - name: flags
       type: number
 
-
   - name: selectable
     type: function
-    desc: Selectable 
+    desc: Selectable. 
 
   - name: button
     type: function
-    desc: Button 
+    desc: Button. 
 
   - name: button_image
     type: function
-    desc: ButtonImage 
+    desc: ButtonImage. 
 
   - name: button_arrow
     type: function
-    desc: ButtonArrow 
+    desc: ButtonArrow. 
     parameters:
     - name: label
       type: string
-
     - name: direction
       type: number
-
     returns:
     - name: pushed
       type: bool
 
-
   - name: checkbox
     type: function
-    desc: Checkbox 
+    desc: Checkbox. 
 
   - name: radio_button
     type: function
-    desc: RadioButton 
+    desc: RadioButton. 
 
   - name: begin_menu_bar
     type: function
-    desc: BeginMenuBar 
+    desc: BeginMenuBar. 
 
   - name: end_menu_bar
     type: function
-    desc: EndMenuBar 
+    desc: EndMenuBar. 
 
   - name: begin_main_menu_bar
     type: function
-    desc: BeginMainMenuBar 
+    desc: BeginMainMenuBar. 
 
   - name: end_main_menu_bar
     type: function
-    desc: EndMainMenuBar 
+    desc: EndMainMenuBar. 
 
   - name: begin_menu
     type: function
-    desc: BeginMenu 
+    desc: BeginMenu. 
 
   - name: end_menu
     type: function
-    desc: EndMenu 
+    desc: EndMenu. 
 
   - name: menu_item
     type: function
-    desc: MenuItem 
+    desc: MenuItem. 
 
   - name: same_line
     type: function
-    desc: SameLine 
+    desc: SameLine. 
 
   - name: new_line
     type: function
-    desc: NewLine 
+    desc: NewLine. 
 
   - name: bullet
     type: function
-    desc: Bullet 
+    desc: Bullet. 
 
   - name: indent
     type: function
-    desc: Indent 
+    desc: Indent. 
 
   - name: unindent
     type: function
-    desc: Unindent 
+    desc: Unindent. 
 
   - name: spacing
     type: function
-    desc: Spacing 
+    desc: Spacing. 
 
   - name: separator
     type: function
-    desc: Separator 
+    desc: Separator. 
 
   - name: get_cursor_screen_pos
     type: function
-    desc: GetCursorScreenPos 
+    desc: GetCursorScreenPos. 
+    returns:
+    - name: x
+      type: number
+      desc: |
+        Cursor screen x position
+        
+    - name: y
+      type: number
+      desc: |
+        Cursor screen y position
+        
+
+  - name: get_cursor_pos
+    type: function
+    desc: GetCursorPos. 
+    returns:
+    - name: x
+      type: number
+      desc: |
+        Cursor x position
+        
+    - name: y
+      type: number
+      desc: |
+        Cursor y position
+        
 
   - name: plot_lines
     type: function
-    desc: PlotLines 
+    desc: PlotLines. 
 
   - name: plot_histogram
     type: function
-    desc: PlotHistogram 
+    desc: PlotHistogram. 
 
   - name: demo
     type: function
-    desc: Demo 
+    desc: Demo. 
 
   - name: is_mouse_double_clicked
     type: function
-    desc: IsMouseDoubleClicked 
+    desc: IsMouseDoubleClicked. 
 
   - name: is_mouse_clicked
     type: function
-    desc: IsMouseClicked 
+    desc: IsMouseClicked. 
 
   - name: is_item_active
     type: function
-    desc: IsItemActive 
+    desc: IsItemActive. 
 
   - name: is_item_focused
     type: function
-    desc: IsItemFocused 
+    desc: IsItemFocused. 
 
   - name: is_item_clicked
     type: function
-    desc: IsItemClicked 
+    desc: IsItemClicked. 
 
   - name: is_item_double_clicked
     type: function
-    desc: IsItemDoubleClicked 
+    desc: IsItemDoubleClicked. 
 
   - name: is_item_hovered
     type: function
-    desc: IsItemHovered 
+    desc: IsItemHovered. 
 
   - name: get_item_rect_max
     type: function
-    desc: GetItemRectMax 
+    desc: GetItemRectMax. 
 
   - name: set_keyboard_focus_here
     type: function
-    desc: SetKeyboardFocusHere 
+    desc: SetKeyboardFocusHere. 
 
   - name: get_style
     type: function
-    desc: GetStyle 
+    desc: GetStyle. 
 
   - name: set_style
     type: function
-    desc: SetStyle 
+    desc: SetStyle. 
 
   - name: set_style_color
     type: function
-    desc: SetStyleColor 
+    desc: SetStyleColor. 
 
   - name: push_style_color
     type: function
-    desc: PushStyleColor 
+    desc: PushStyleColor. 
 
   - name: pop_style_color
     type: function
-    desc: PopStyleColor 
+    desc: PopStyleColor. 
 
   - name: push_style_var
     type: function
-    desc: PushStyleVar 
+    desc: PushStyleVar. 
     parameters:
     - name: style_var
       type: number
-      desc: Enum for the style to be pushed
+      desc: |
+        Enum for the style to be pushed
+        
     - name: value
       type: None
-      desc: Number or vmath.vector3 specifying the value of the style var
+      desc: |
+        Number or vmath.vector3 specifying the value of the style var
+        
 
   - name: pop_style_var
     type: function
-    desc: PopStyleVar 
+    desc: PopStyleVar. 
     parameters:
     - name: count
       type: number
-      desc: Number of style vars to pop; optional, defaults to 1
+      desc: |
+        Number of style vars to pop; optional, defaults to 1
+        
 
   - name: set_window_font_scale
     type: function
-    desc: SetWindowFontScale 
+    desc: SetWindowFontScale. 
 
   - name: set_global_font_scale
     type: function
-    desc: SetGlobalFontScale 
+    desc: SetGlobalFontScale. 
 
   - name: scale_all_sizes
     type: function
-    desc: ScaleAllSizes 
+    desc: ScaleAllSizes. 
 
   - name: set_cursor_pos
     type: function
-    desc: SetCursorPos 
+    desc: SetCursorPos. 
 
   - name: push_item_width
     type: function
-    desc: PushItemWidth 
+    desc: PushItemWidth. 
 
   - name: pop_item_width
     type: function
-    desc: PopItemWidth 
+    desc: PopItemWidth. 
 
   - name: set_next_item_width
     type: function
-    desc: SetNextItemWidth 
+    desc: SetNextItemWidth. 
 
   - name: calc_item_width
     type: function
-    desc: CalcItemWidth 
+    desc: CalcItemWidth. 
+
+  - name: set_item_default_focus
+    type: function
+    desc: SetItemDefaultFocus. 
 
   - name: set_scroll_here_y
     type: function
-    desc: SetScrollHereY 
+    desc: SetScrollHereY. 
 
   - name: font_add_t_t_f_file
     type: function
-    desc: FontAddTTFFile 
+    desc: FontAddTTFFile. 
 
   - name: font_add_t_t_f_data
     type: function
-    desc: FontAddTTFData 
+    desc: FontAddTTFData. 
 
   - name: font_push
     type: function
-    desc: FontPush 
+    desc: FontPush. 
 
   - name: font_pop
     type: function
-    desc: FontPop 
+    desc: FontPop. 
 
   - name: font_scale
     type: function
-    desc: FontScale 
+    desc: FontScale. 
 
   - name: get_frame_height
     type: function
-    desc: GetFrameHeight 
+    desc: GetFrameHeight. 
 
   - name: draw_line
     type: function
-    desc: DrawLine 
+    desc: DrawLine. 
 
   - name: draw_rect
     type: function
-    desc: DrawRect 
+    desc: DrawRect. 
 
   - name: draw_rect_filled
     type: function
-    desc: DrawRectFilled 
+    desc: DrawRectFilled. 
 
   - name: draw_progress_bar
     type: function
-    desc: DrawProgressBar 
+    desc: DrawProgressBar. 
 
   - name: set_rendering_enabled
     type: function
-    desc: SetRenderingEnabled 
+    desc: SetRenderingEnabled. 
 
   - name: want_capture_mouse
     type: function
-    desc: WantCaptureMouse 
+    desc: WantCaptureMouse. 
 
   - name: want_capture_keyboard
     type: function
-    desc: WantCaptureKeyboard 
+    desc: WantCaptureKeyboard. 
 
   - name: want_capture_text
     type: function
-    desc: WantCaptureText 
+    desc: WantCaptureText. 
 
   - name: set_defaults
     type: function
-    desc: SetDefaults 
+    desc: SetDefaults. 
 
   - name: set_ini_filename
     type: function
-    desc: SetIniFilename 
+    desc: SetIniFilename. 
 
